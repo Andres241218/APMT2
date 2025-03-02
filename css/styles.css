@@ -287,3 +287,19 @@
     background-color: #6a6aff;
   }
   
+  /* Estilos para el botón de "Terminar Checklist" y "Aceptar" en el modal */
+  .btn-container button {
+    background-color: #4a4aff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-container button:hover {
+    background-color: #6a6aff;
+  }
+  

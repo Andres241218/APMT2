@@ -1,108 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Checklist Montaña</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
-    <header class="header">
-      <h1>Checklist para tu viaje a la montaña</h1>
-    </header>
-
-    <main class="main-content">
-      <div class="checklist-container">
-        <ul class="checklist">
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Botas de senderismo
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Chaqueta rompevientos
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Cantimplora
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Kit de primeros auxilios
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Mapa o GPS
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Ropa abrigada en capas
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Linterna
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Bastones de trekking
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Protector solar
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Gafas de sol
-            </label>
-          </li>
-        </ul>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <nav class="nav-bar">
-        <a href="#">
-          <img src="../img/icon-inicio.svg" alt="Inicio" />
-          <span>Inicio</span>
-        </a>
-        <a href="#">
-          <img src="../img/icon-ajustes.svg" alt="Ajustes" />
-          <span>Ajustes</span>
-        </a>
-        <a href="#">
-          <img src="../img/icon-perfil.svg" alt="Mi Perfil" />
-          <span>Mi Perfil</span>
-        </a>
-      </nav>
-    </footer>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Montaña</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Checklist para tu viaje a la montaña</h1>
+  </header>
+  <main class="main-content">
+    <div class="checklist-container">
+      <ul class="checklist">
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Botas de senderismo
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Chaqueta rompevientos
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Cantimplora
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Kit de primeros auxilios
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Mapa o GPS
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Ropa abrigada en capas
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Linterna
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Bastones de trekking
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Protector solar
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Gafas de sol
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-container" style="text-align: center; margin-top: 20px;">
+      <button id="finish-btn">completo</button>
+    </div>
+  </main>
+  <footer class="footer">
+    <nav class="nav-bar">
+      <a href="#">
+        <img src="../img/icon-inicio.svg" alt="Inicio">
+        <span>Inicio</span>
+      </a>
+      <a href="#">
+        <img src="../img/icon-ajustes.svg" alt="Ajustes">
+        <span>Ajustes</span>
+      </a>
+      <a href="#">
+        <img src="../img/icon-perfil.svg" alt="Mi Perfil">
+        <span>Mi Perfil</span>
+      </a>
+    </nav>
+  </footer>
+  <div id="finish-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-finish-modal" class="close">&times;</span>
+      <h2>Tienes todo para tu viaje</h2>
+      <button id="confirm-finish">Aceptar</button>
+    </div>
+  </div>
+  <script src="../js/util/check.js"></script>
+</body>
 </html>
