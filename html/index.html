@@ -15,10 +15,12 @@
     <main class="main-content">
       <!-- Sección del destino actual -->
       <section class="destino-actual">
-        <div class="card">
-          <img src="https://via.placeholder.com/300x200" alt="Playa" />
-          <h2>Playa</h2>
-          <p>Último destino</p>
+        <div class="destino-fondo">
+          <div class="destino-texto">
+            <h2>Playa</h2>
+            <!-- Agregamos un ID para poder actualizar este texto con JS -->
+            <p id="ultimo-destino">Último destino</p>
+          </div>
         </div>
       </section>
 
@@ -34,19 +36,16 @@
       <!-- Posibles destinos -->
       <section class="posibles-destinos">
         <h2>Posibles destinos</h2>
-        <div class="destinos-grid">
-          <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Montaña" />
-            <p>Montaña</p>
-          </div>
-          <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Playa" />
-            <p>Playa</p>
-          </div>
-          <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Nieve" />
-            <p>Nieve</p>
-          </div>
+
+        <!-- Cada "destino-item" con su imagen de fondo -->
+        <div class="destino-item" style="background-image: url('../img/montana.jpg');">
+          <div class="destino-tipo">Montaña</div>
+        </div>
+        <div class="destino-item" style="background-image: url('../img/playa.jpg');">
+          <div class="destino-tipo">Playa</div>
+        </div>
+        <div class="destino-item" style="background-image: url('../img/nieve.jpg');">
+          <div class="destino-tipo">Nieve</div>
         </div>
       </section>
     </main>
@@ -55,7 +54,6 @@
     <footer class="footer">
       <nav class="nav-bar">
         <a href="#" class="active">
-          <!-- Aquí podrías usar íconos de tu preferencia (FontAwesome, etc.) -->
           <span>Inicio</span>
         </a>
         <a href="#">
@@ -66,5 +64,36 @@
         </a>
       </nav>
     </footer>
+
+    <!-- ========== MODAL CON FORMULARIO ========== -->
+    <div id="modal-form" class="modal">
+      <div class="modal-content">
+        <!-- Botón para cerrar el modal -->
+        <span id="close-modal" class="close">&times;</span>
+
+        <h2>¿Qué país quiere visitar?</h2>
+
+        <form id="country-form">
+          <!-- LISTA DE PAÍSES -->
+          <label for="country-select">Seleccione un país:</label>
+          <select id="country-select">
+            <option value="">--Seleccione--</option>
+            <!-- Se llenará dinámicamente con JavaScript -->
+          </select>
+
+          <!-- LISTA DE PLAYAS/MONTAÑAS/ETC. -->
+          <label for="beach-select">Seleccione una playa (u opción):</label>
+          <select id="beach-select">
+            <option value="">--Seleccione un país primero--</option>
+            <!-- Se llenará dinámicamente con JavaScript -->
+          </select>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Cargamos el archivo JS al final del body -->
+    <script src="../util/script.js"></script>
   </body>
 </html>
