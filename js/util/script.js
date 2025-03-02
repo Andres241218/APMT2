@@ -86,7 +86,7 @@ const countrySites = {
             window.location.href = 'checkmontana.html';
             break;
           case 'nieve':
-            window.location.href = 'checkmieve.html';
+            window.location.href = 'checknieve.html';
             break;
           default:
             window.location.href = 'checklist.html';
