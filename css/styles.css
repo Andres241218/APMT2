@@ -1,305 +1,330 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #0f0f1f;
-    color: #ffffff;
-    margin-bottom: 70px;
-  }
-  
-  .header {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .header h1 {
-    font-size: 1.8rem;
-    color: #ffffff;
-  }
-  
-  .main-content {
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .destino-actual {
-    margin-bottom: 20px;
-  }
-  
-  .destino-fondo {
-    position: relative;
-    background: url('../img/playa.jpg') no-repeat center center/cover;
-    height: 150px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .destino-texto {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(31, 31, 47, 0.7);
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  .destino-texto h2 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-  
-  .proxima-inspeccion {
-    margin-bottom: 20px;
-  }
-  
-  .proxima-inspeccion h2 {
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  
-  .botones {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .botones button {
-    background-color: #4a4aff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .botones button:hover {
-    background-color: #6a6aff;
-  }
-  
-  .posibles-destinos {
-    margin-bottom: 20px;
-  }
-  
-  .posibles-destinos h2 {
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  
-  .destino-item {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 120px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  
-  .destino-item:hover {
-    opacity: 0.9;
-  }
-  
-  .destino-tipo {
-    background-color: rgba(31, 31, 47, 0.7);
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-left: auto;
-    margin-right: 20px;
-    font-size: 1rem;
-  }
-  
-  .checklist-container {
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 10px;
-    padding: 20px;
-  }
-  
-  .checklist {
-    list-style: none;
-    margin-top: 10px;
-  }
-  
-  .checklist li {
-    margin-bottom: 15px;
-  }
-  
-  .checklist label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .checklist input[type="checkbox"] {
-    display: none;
-  }
-  
-  .checkmark {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    position: relative;
-  }
-  
-  .checklist input[type="checkbox"]:checked + .checkmark {
-    background-color: #4a4aff;
-    border-color: #4a4aff;
-  }
-  
-  .checklist input[type="checkbox"]:checked + .checkmark::after {
-    content: "";
-    position: absolute;
-    left: 7px;
-    top: 3px;
-    width: 6px;
-    height: 12px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-  
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .nav-bar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #1f1f2f;
-    padding: 10px 0;
-  }
-  
-  .nav-bar a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .nav-bar a img {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 5px;
-  }
-  
-  .nav-bar a.active {
-    color: #4a4aff;
-  }
-  
-  .nav-bar a:hover {
-    background-color: #2f2f4f;
-    transition: background-color 0.3s;
-    padding: 10px 0;
-  }
-  
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    animation: fadeIn 0.3s;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .modal-content {
-    background-color: #1f1f2f;
-    margin: 10% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-    color: #fff;
-    position: relative;
-    animation: slideIn 0.3s;
-  }
-  
-  @keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  .close {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .close:hover {
-    color: #4a4aff;
-  }
-  
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .modal-content label {
-    font-size: 0.95rem;
-  }
-  
-  .modal-content select,
-  .modal-content button {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    font-size: 0.9rem;
-  }
-  
-  .modal-content button {
-    background-color: #4a4aff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .modal-content button:hover {
-    background-color: #6a6aff;
-  }
-  
-  /* Estilos para el botón de "Terminar Checklist" y "Aceptar" en el modal */
-  .btn-container button {
-    background-color: #4a4aff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 20px;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-container button:hover {
-    background-color: #6a6aff;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0f0f1f;
+  color: #ffffff;
+  margin-bottom: 70px;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#language-toggle {
+  background-color: #4a4aff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+#language-toggle:hover {
+  background-color: #6a6aff;
+}
+
+.main-content {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.destino-actual {
+  margin-bottom: 20px;
+}
+
+.destino-fondo {
+  position: relative;
+  background: url('../img/playa.jpg') no-repeat center center/cover;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.destino-texto {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(31, 31, 47, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.destino-texto h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.proxima-inspeccion {
+  margin-bottom: 20px;
+}
+
+.proxima-inspeccion h2 {
+  margin-bottom: 40px;
+  font-size: 1.3rem;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+}
+
+.botones button {
+  background-color: #4a4aff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+
+.botones button:hover {
+  background-color: #6a6aff;
+}
+
+.posibles-destinos {
+  margin-top: 10px;
+ 
+}
+
+.posibles-destinos h2 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-top: -20px;
+}
+
+.destino-item {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.destino-item:hover {
+  opacity: 0.9;
+}
+
+.destino-tipo {
+  background-color: rgba(31, 31, 47, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: 1rem;
+}
+
+.checklist-container {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.checklist {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.checklist li {
+  margin-bottom: 15px;
+}
+
+.checklist label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.checklist input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.checklist input[type="checkbox"]:checked + .checkmark {
+  background-color: #4a4aff;
+  border-color: #4a4aff;
+}
+
+.checklist input[type="checkbox"]:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1f1f2f;
+  padding: 10px 0;
+}
+
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-bar a img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}
+
+.nav-bar a.active {
+  color: #4a4aff;
+}
+
+.nav-bar a:hover {
+  background-color: #2f2f4f;
+  transition: background-color 0.3s;
+  padding: 10px 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: #1f1f2f;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  color: #fff;
+  position: relative;
+  animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #4a4aff;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content label {
+  font-size: 0.95rem;
+}
+
+.modal-content select,
+.modal-content button {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.modal-content button {
+  background-color: #4a4aff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #6a6aff;
+}
+
+.btn-container button {
+  background-color: #4a4aff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-container button:hover {
+  background-color: #6a6aff;
+}
