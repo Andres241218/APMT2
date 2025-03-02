@@ -2,9 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página de Bienvenida</title>
-    <!-- Enlazamos nuestro CSS -->
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -13,12 +12,11 @@
     </header>
 
     <main class="main-content">
-      <!-- Sección del destino actual -->
+      <!-- Sección "Último destino" -->
       <section class="destino-actual">
         <div class="destino-fondo">
           <div class="destino-texto">
             <h2>Playa</h2>
-            <!-- Agregamos un ID para poder actualizar este texto con JS -->
             <p id="ultimo-destino">Último destino</p>
           </div>
         </div>
@@ -36,8 +34,7 @@
       <!-- Posibles destinos -->
       <section class="posibles-destinos">
         <h2>Posibles destinos</h2>
-
-        <!-- Cada "destino-item" con su imagen de fondo -->
+        <!-- Cada destino es clickeable y tiene imagen de fondo; el texto indica el tipo -->
         <div class="destino-item" style="background-image: url('../img/montana.jpg');">
           <div class="destino-tipo">Montaña</div>
         </div>
@@ -53,47 +50,38 @@
     <!-- Barra de navegación inferior -->
     <footer class="footer">
       <nav class="nav-bar">
-        <a href="#" class="active">
-          <span>Inicio</span>
-        </a>
-        <a href="#">
-          <span>Ajustes</span>
-        </a>
-        <a href="#">
-          <span>Mi Perfil</span>
-        </a>
+        <a href="#" class="active"><span>Inicio</span></a>
+        <a href="#"><span>Ajustes</span></a>
+        <a href="#"><span>Mi Perfil</span></a>
       </nav>
     </footer>
 
-    <!-- ========== MODAL CON FORMULARIO ========== -->
+    <!-- Modal Lightbox para el formulario -->
     <div id="modal-form" class="modal">
       <div class="modal-content">
-        <!-- Botón para cerrar el modal -->
+        <!-- Botón de cierre -->
         <span id="close-modal" class="close">&times;</span>
-
         <h2>¿Qué país quiere visitar?</h2>
-
         <form id="country-form">
-          <!-- LISTA DE PAÍSES -->
+          <!-- Paso 1: Seleccionar país -->
           <label for="country-select">Seleccione un país:</label>
           <select id="country-select">
             <option value="">--Seleccione--</option>
-            <!-- Se llenará dinámicamente con JavaScript -->
+            <!-- Se llenará dinámicamente -->
           </select>
-
-          <!-- LISTA DE PLAYAS/MONTAÑAS/ETC. -->
-          <label for="beach-select">Seleccione una playa (u opción):</label>
-          <select id="beach-select">
-            <option value="">--Seleccione un país primero--</option>
-            <!-- Se llenará dinámicamente con JavaScript -->
-          </select>
-
+          <!-- Paso 2: Seleccionar el sitio (aparece al elegir país) -->
+          <div id="site-container" style="display: none;">
+            <label for="site-select">Seleccione un sitio:</label>
+            <select id="site-select">
+              <!-- Se llenará según el país seleccionado -->
+            </select>
+          </div>
           <button type="submit">Enviar</button>
         </form>
       </div>
     </div>
 
-    <!-- Cargamos el archivo JS al final del body -->
-    <script src="../util/script.js"></script>
+    <!-- Cargar el script JS (nota la ruta actualizada) -->
+    <script src="../js/util/script.js"></script>
   </body>
 </html>
