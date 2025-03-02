@@ -1,6 +1,3 @@
-/* ------------------------------------------------------------------
-   RESET Y ESTILOS GENERALES
------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -9,14 +6,11 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #0f0f1f; /* Fondo oscuro */
+    background-color: #0f0f1f;
     color: #ffffff;
-    margin-bottom: 70px; /* Espacio para la barra de navegación fija */
+    margin-bottom: 70px;
   }
   
-  /* ------------------------------------------------------------------
-     ENCABEZADO
-  ------------------------------------------------------------------ */
   .header {
     text-align: center;
     padding: 20px;
@@ -27,18 +21,12 @@
     color: #ffffff;
   }
   
-  /* ------------------------------------------------------------------
-     CONTENEDOR PRINCIPAL
-  ------------------------------------------------------------------ */
   .main-content {
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
   }
   
-  /* ------------------------------------------------------------------
-     SECCIÓN "ÚLTIMO DESTINO" (en index.html)
-  ------------------------------------------------------------------ */
   .destino-actual {
     margin-bottom: 20px;
   }
@@ -65,9 +53,6 @@
     margin-bottom: 5px;
   }
   
-  /* ------------------------------------------------------------------
-     PRÓXIMA INSPECCIÓN (en index.html)
-  ------------------------------------------------------------------ */
   .proxima-inspeccion {
     margin-bottom: 20px;
   }
@@ -96,9 +81,6 @@
     background-color: #6a6aff;
   }
   
-  /* ------------------------------------------------------------------
-     SECCIÓN "POSIBLES DESTINOS" (en index.html)
-  ------------------------------------------------------------------ */
   .posibles-destinos {
     margin-bottom: 20px;
   }
@@ -134,10 +116,6 @@
     font-size: 1rem;
   }
   
-  /* ------------------------------------------------------------------
-     CONTENEDOR DE CHECKLIST (en checkplaya, checkmontana, checkmieve)
-  ------------------------------------------------------------------ */
-  /* Fondo blanco para la lista */
   .checklist-container {
     background-color: #ffffff;
     color: #000000;
@@ -161,12 +139,10 @@
     font-size: 1rem;
   }
   
-  /* Ocultamos el checkbox por defecto */
   .checklist input[type="checkbox"] {
     display: none;
   }
   
-  /* Cuadro de check personalizado */
   .checkmark {
     display: inline-block;
     width: 24px;
@@ -177,13 +153,11 @@
     position: relative;
   }
   
-  /* Cambia de color al checkear */
   .checklist input[type="checkbox"]:checked + .checkmark {
     background-color: #4a4aff;
     border-color: #4a4aff;
   }
   
-  /* Dibuja la palomita */
   .checklist input[type="checkbox"]:checked + .checkmark::after {
     content: "";
     position: absolute;
@@ -196,9 +170,6 @@
     transform: rotate(45deg);
   }
   
-  /* ------------------------------------------------------------------
-     BARRA DE NAVEGACIÓN INFERIOR
-  ------------------------------------------------------------------ */
   .footer {
     position: fixed;
     bottom: 0;
@@ -240,11 +211,8 @@
     padding: 10px 0;
   }
   
-  /* ------------------------------------------------------------------
-     MODAL LIGHTBOX (si lo usas en index.html)
-  ------------------------------------------------------------------ */
   .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     z-index: 999;
     left: 0;
@@ -252,7 +220,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    background-color: rgba(0, 0, 0, 0.7);
     animation: fadeIn 0.3s;
   }
   

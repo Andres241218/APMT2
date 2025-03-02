@@ -23,7 +23,7 @@
       </section>
 
       <!-- Próxima inspección -->
-      <section class="proxima-inspeccion">
+      <section class="proxima-inspección">
         <h2>Próxima Inspección</h2>
         <div class="botones">
           <button>Agrega un destino</button>
@@ -34,7 +34,7 @@
       <!-- Posibles destinos -->
       <section class="posibles-destinos">
         <h2>Posibles destinos</h2>
-        <!-- Cada destino es clickeable y tiene imagen de fondo; el texto indica el tipo -->
+        <!-- Cada destino es clickeable y tiene imagen de fondo -->
         <div class="destino-item" style="background-image: url('../img/montana.jpg');">
           <div class="destino-tipo">Montaña</div>
         </div>
@@ -47,41 +47,44 @@
       </section>
     </main>
 
-    <!-- Barra de navegación inferior -->
+    <!-- Barra de navegación inferior (ahora con el mismo estilo e íconos) -->
     <footer class="footer">
       <nav class="nav-bar">
-        <a href="#" class="active"><span>Inicio</span></a>
-        <a href="#"><span>Ajustes</span></a>
-        <a href="#"><span>Mi Perfil</span></a>
+        <a href="#">
+          <img src="../img/icon-inicio.svg" alt="Inicio" />
+          <span>Inicio</span>
+        </a>
+        <a href="#">
+          <img src="../img/icon-ajustes.svg" alt="Ajustes" />
+          <span>Ajustes</span>
+        </a>
+        <a href="#">
+          <img src="../img/icon-perfil.svg" alt="Mi Perfil" />
+          <span>Mi Perfil</span>
+        </a>
       </nav>
     </footer>
 
-    <!-- Modal Lightbox para el formulario -->
+    <!-- Modal Lightbox para el formulario (opcional, si lo usas) -->
     <div id="modal-form" class="modal">
       <div class="modal-content">
-        <!-- Botón de cierre -->
         <span id="close-modal" class="close">&times;</span>
         <h2>¿Qué país quiere visitar?</h2>
         <form id="country-form">
-          <!-- Paso 1: Seleccionar país -->
           <label for="country-select">Seleccione un país:</label>
           <select id="country-select">
             <option value="">--Seleccione--</option>
-            <!-- Se llenará dinámicamente -->
+            <!-- Se llenará dinámicamente con JS -->
           </select>
-          <!-- Paso 2: Seleccionar el sitio (aparece al elegir país) -->
           <div id="site-container" style="display: none;">
             <label for="site-select">Seleccione un sitio:</label>
-            <select id="site-select">
-              <!-- Se llenará según el país seleccionado -->
-            </select>
+            <select id="site-select"></select>
           </div>
           <button type="submit">Enviar</button>
         </form>
       </div>
     </div>
 
-    <!-- Cargar el script JS (nota la ruta actualizada) -->
     <script src="../js/util/script.js"></script>
   </body>
 </html>
