@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const translations = {
     es: {
-      headerTitle: "Bienvenido de Nuevo Andres!",
-      destinoH2: "Ultimo destino",
+      headerTitle: "Bienvenido de Nuevo ",
+      destinoH2: "Último destino",
       ultimoDestino: "Playa",
-      proximaInspeccion: "¿Cual es tu proxima aventura?",
+      proximaInspeccion: "¿Cuál es tu próxima aventura?",
       btnAgregaDestino: "Agrega un destino",
       btnEliminaDestino: "Elimina un destino",
       posiblesDestinosH2: "Posibles destinos",
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
       footerPerfil: "Mi Perfil"
     },
     en: {
-      headerTitle: "Welcome back, Andres!",
+      headerTitle: "Welcome back ",
       destinoH2: "Last destination",
       ultimoDestino: "Beach",
-      proximaInspeccion: "¿What is your next adventure?",
+      proximaInspeccion: "What is your next adventure?",
       btnAgregaDestino: "Add a destination",
       btnEliminaDestino: "Remove a destination",
       posiblesDestinosH2: "Possible destinations",
@@ -43,8 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLanguage() {
     const t = translations[currentLanguage];
+    
+    // Obtener el nombre del usuario desde localStorage
+    const userData = JSON.parse(localStorage.getItem('userData')) || {};
+    const nombreUsuario = userData.nombre || "Usuario";
+
+    // Actualizar el título del encabezado con el nombre del usuario
     const headerTitle = document.getElementById('header-title');
-    if (headerTitle) headerTitle.textContent = t.headerTitle;
+    if (headerTitle) headerTitle.textContent = t.headerTitle + nombreUsuario;
 
     const destinoH2 = document.getElementById('destino-h2');
     if (destinoH2) {
