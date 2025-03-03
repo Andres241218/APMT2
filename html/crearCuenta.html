@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" href="../css/crearCuenta.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Crea una Cuenta</h1>
+      <p>
+        Ingresa los siguientes datos para registrarte.
+      </p>
+      <form id="account-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan" required />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" placeholder="Ej. Pérez" required />
+        </div>
+        <div class="form-group">
+          <label>Sexo</label>
+          <div class="radios">
+            <label>
+              <input type="radio" name="sexo" value="hombre" required />
+              Hombre
+            </label>
+            <label>
+              <input type="radio" name="sexo" value="mujer" />
+              Mujer
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>¿Viajero frecuente?</label>
+          <div class="radios">
+            <label>
+              <input type="radio" name="viajeroFrecuente" value="si" required />
+              Sí
+            </label>
+            <label>
+              <input type="radio" name="viajeroFrecuente" value="no" />
+              No
+            </label>
+          </div>
+        </div>
+        <div class="terms-container">
+          <a href="#" id="terms-link">Términos y Condiciones</a>
+        </div>
+        <div class="form-group checkboxes">
+          <label>
+            <input type="checkbox" name="terminos" required />
+            Acepto los Términos y Condiciones
+          </label>
+        </div>
+        <button type="submit" class="submit-btn">Crear Cuenta</button>
+      </form>
+      <p class="footer-text">
+        Al crear una cuenta, aceptas nuestros Términos de uso y Política de privacidad.
+      </p>
+    </div>
+
+    <div id="terms-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-terms" class="close">&times;</span>
+        <h2>Términos y Condiciones</h2>
+        <div class="terms-content">
+          <p>
+            En MyTravel nos comprometemos a proteger la privacidad y seguridad de la información personal que usted nos confía. Esta política tiene como objetivo informarle de manera clara y transparente sobre cómo recopilamos, utilizamos, almacenamos y protegemos sus datos personales, en cumplimiento con la normativa vigente en materia de protección de datos.
+          </p>
+    
+          <h2>Recopilación y Uso de Datos</h2>
+          <p>
+            Los datos personales que recopilamos a través de nuestro sitio web (por ejemplo, nombre, apellido, género y preferencias de viaje) se utilizan para gestionar su cuenta, mejorar nuestros servicios y ofrecerle una experiencia personalizada. Asimismo, podemos utilizar esta información para enviarle notificaciones sobre actualizaciones, promociones y noticias relevantes, siempre respetando su privacidad.
+          </p>
+    
+          <h2>Medidas de Seguridad</h2>
+          <p>
+            Implementamos medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de sus datos personales. Estas medidas incluyen el cifrado de la información, controles de acceso y la actualización periódica de nuestros sistemas de seguridad.
+          </p>
+    
+          <h2>Derechos del Usuario</h2>
+          <p>
+            Usted tiene el derecho de acceder, rectificar y cancelar sus datos, así como de oponerse a su tratamiento. Si desea ejercer alguno de estos derechos, o si tiene alguna duda sobre cómo se gestionan sus datos, puede ponerse en contacto con nuestro responsable de protección de datos a través de [correo electrónico] o [dirección física].
+          </p>
+    
+          <h2>Conservación de Datos</h2>
+          <p>
+            Conservamos sus datos personales únicamente durante el tiempo necesario para cumplir con las finalidades para las que fueron recabados o para cumplir con obligaciones legales. Una vez finalizado este periodo, procederemos a su eliminación o anonimización.
+          </p>
+    
+          <h2>Consentimiento</h2>
+          <p>
+            Al utilizar nuestro sitio web y proporcionar sus datos, usted otorga su consentimiento expreso para el tratamiento de su información conforme a esta política. Si en algún momento considera que sus derechos no están siendo respetados, tiene la posibilidad de presentar una reclamación ante la autoridad de protección de datos correspondiente.
+          </p>
+    
+          <p>
+            Gracias por confiar en nosotros. Su privacidad es fundamental para nosotros.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/util/crearCuenta.js"></script>
+  </body>
+</html>
