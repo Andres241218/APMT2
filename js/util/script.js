@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mapeo de imágenes de fondo según el tipo (todo en minúsculas)
   const backgroundImages = {
     "playa": "../img/playa.jpg",
-    "montaña": "../img/montana.jpg",
+    "montaña": "../img/montana.jpg", 
     "nieve": "../img/nieve.jpg"
   };
 
@@ -63,6 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = 'checkmontana.html';
           break;
         case 'nieve':
+          window.location.href = 'checknieve.html';
+          break;
+          case 'beach':
+          window.location.href = 'checknieve.html';
+          break;
+          case 'mountain':
+          window.location.href = 'checknieve.html';
+          break;
+          case 'snow':
           window.location.href = 'checknieve.html';
           break;
         default:

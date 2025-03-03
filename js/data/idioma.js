@@ -45,85 +45,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const t = translations[currentLanguage];
     localStorage.setItem('currentLanguage', currentLanguage);
 
-    // Actualizar header title (agregando el nombre del usuario si está guardado)
+    // Header Title
     const userData = JSON.parse(localStorage.getItem('userData')) || {};
     const nombreUsuario = userData.nombre || "Usuario";
     const headerTitle = document.getElementById('header-title');
     if (headerTitle) headerTitle.textContent = t.headerTitle + nombreUsuario;
 
-    // Actualizar destino-h2:
+    // Destino H2
     const destinoH2 = document.getElementById('destino-h2');
-    const storedTipo = localStorage.getItem('tipoDestino'); // Se espera "Montaña", "Playa" o "Nieve"
-    if (destinoH2) {
-      destinoH2.textContent = storedTipo 
-        ? (storedTipo.toLowerCase() === 'montaña' || storedTipo.toLowerCase() === 'mountain'
-            ? t.destinoMontana
-            : storedTipo.toLowerCase() === 'playa' || storedTipo.toLowerCase() === 'beach'
-              ? t.destinoPlaya
-              : storedTipo.toLowerCase() === 'nieve' || storedTipo.toLowerCase() === 'snow'
-                ? t.destinoNieve
-                : storedTipo)
-        : t.destinoH2;
-    }
+    if (destinoH2) destinoH2.textContent = t.destinoH2;
 
-    // Actualizar último destino:
+    // Último Destino
     const ultimoDestinoEl = document.getElementById('ultimo-destino');
-    const storedDestino = localStorage.getItem('ultimoDestino'); // Se espera "Tipo: País"
     if (ultimoDestinoEl) {
-      if (storedDestino && storedTipo) {
-        // Se separa el tipo y el país usando ":" como separador
-        const parts = storedDestino.split(':');
-        const countryPart = parts.length > 1 ? parts[1].trim() : "";
-        let translatedTipo = storedTipo;
-        const lower = storedTipo.toLowerCase();
-        if (lower === 'montaña' || lower === 'mountain') {
-          translatedTipo = t.destinoMontana;
-        } else if (lower === 'playa' || lower === 'beach') {
-          translatedTipo = t.destinoPlaya;
-        } else if (lower === 'nieve' || lower === 'snow') {
-          translatedTipo = t.destinoNieve;
-        }
-        const newDestino = countryPart ? `${translatedTipo}: ${countryPart}` : translatedTipo;
-        ultimoDestinoEl.textContent = newDestino;
-        localStorage.setItem('ultimoDestino', newDestino);
-      } else {
-        ultimoDestinoEl.textContent = t.ultimoDestino;
-      }
+      const storedTipo = localStorage.getItem('tipoDestino') || "";
+      const translatedTipo = storedTipo.toLowerCase() === "montaña" ? t.destinoMontana :
+                             storedTipo.toLowerCase() === "playa" ? t.destinoPlaya :
+                             storedTipo.toLowerCase() === "nieve" ? t.destinoNieve : storedTipo;
+      ultimoDestinoEl.textContent = translatedTipo || t.ultimoDestino;
     }
 
-    const proximaInspeccionH2 = document.getElementById('proxima-inspeccion-h2');
-    if (proximaInspeccionH2) proximaInspeccionH2.textContent = t.proximaInspeccion;
+    // Otros elementos
+    const translationsMap = {
+      'proxima-inspeccion-h2': t.proximaInspeccion,
+      'btn-agrega-destino': t.btnAgregaDestino,
+      'btn-elimina-destino': t.btnEliminaDestino,
+      'posibles-destinos-h2': t.posiblesDestinosH2,
+      'modal-title': t.modalTitle,
+      'label-country': t.labelCountry,
+      'btn-enviar': t.btnEnviar
+    };
 
-    const btnAgregaDestino = document.getElementById('btn-agrega-destino');
-    if (btnAgregaDestino) btnAgregaDestino.textContent = t.btnAgregaDestino;
-
-    const btnEliminaDestino = document.getElementById('btn-elimina-destino');
-    if (btnEliminaDestino) btnEliminaDestino.textContent = t.btnEliminaDestino;
-
-    const posiblesDestinosH2 = document.getElementById('posibles-destinos-h2');
-    if (posiblesDestinosH2) posiblesDestinosH2.textContent = t.posiblesDestinosH2;
-
-    const destinoTipos = document.querySelectorAll('.destino-tipo');
-    destinoTipos.forEach(tipo => {
-      const text = tipo.textContent.trim().toLowerCase();
-      if (text === 'montaña' || text === 'mountain') {
-        tipo.textContent = t.destinoMontana;
-      } else if (text === 'playa' || text === 'beach') {
-        tipo.textContent = t.destinoPlaya;
-      } else if (text === 'nieve' || text === 'snow') {
-        tipo.textContent = t.destinoNieve;
-      }
+    Object.keys(translationsMap).forEach(id => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = translationsMap[id];
     });
 
-    const modalTitle = document.getElementById('modal-title');
-    if (modalTitle) modalTitle.textContent = t.modalTitle;
-
-    const labelCountry = document.getElementById('label-country');
-    if (labelCountry) labelCountry.textContent = t.labelCountry;
-
-    const btnEnviar = document.getElementById('btn-enviar');
-    if (btnEnviar) btnEnviar.textContent = t.btnEnviar;
-
+    // Footer Navigation
     const navLinks = document.querySelectorAll('.nav-bar a span');
     if (navLinks.length >= 3) {
       navLinks[0].textContent = t.footerInicio;
@@ -131,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks[2].textContent = t.footerPerfil;
     }
 
+    // Language Toggle Button
     if (languageToggle) {
       languageToggle.textContent = currentLanguage === 'es' ? 'ENGLISH' : 'ESPAÑOL';
     }
