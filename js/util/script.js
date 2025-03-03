@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Al cargar la página, si hay datos guardados, se actualizan los elementos
   const storedDestino = localStorage.getItem('ultimoDestino');
   const storedTipo = localStorage.getItem('tipoDestino');
   if (storedDestino) {
