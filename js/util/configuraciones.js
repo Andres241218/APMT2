@@ -35,24 +35,68 @@ document.addEventListener("DOMContentLoaded", function () {
             element.textContent = idioma === "es" ? i18n_es[key] : i18n_en[key];
         });
     }
-
     function aplicarTema(tema) {
+        const footer = document.querySelector("footer");
+        const destinoTipo = document.querySelectorAll(".destino-tipo");
+        const destinoH2 = document.querySelector("#destino-h2");
+        const ultimoDestino = document.querySelector("#ultimo-destino");
+    
         if (tema === "oscuro") {
             document.body.style.backgroundColor = "#0f0f1f";
             document.body.style.color = "#ffffff";
+    
             if (themeToggle) themeToggle.checked = false;
-            document.querySelectorAll("*").forEach(function (element) {
+    
+            document.querySelectorAll("*:not(footer *)").forEach(function (element) {
                 element.style.color = "#ffffff";
             });
+    
+            destinoTipo.forEach(function (element) {
+                element.style.color = "#ffffff";
+            });
+    
+            if (destinoH2) {
+                destinoH2.style.color = "#ffffff";
+            }
+    
+            if (ultimoDestino) {
+                ultimoDestino.style.color = "#ffffff";
+            }
+    
+            if (footer) {
+                footer.style.backgroundColor = "#f8f8f8";
+                footer.style.color = "#000000";
+            }
         } else {
             document.body.style.backgroundColor = "#ffffff";
             document.body.style.color = "#000000";
+    
             if (themeToggle) themeToggle.checked = true;
-            document.querySelectorAll("*").forEach(function (element) {
+    
+            document.querySelectorAll("*:not(footer *)").forEach(function (element) {
                 element.style.color = "#000000";
             });
+    
+            destinoTipo.forEach(function (element) {
+                element.style.color = "#ffffff";
+            });
+    
+            if (destinoH2) {
+                destinoH2.style.color = "#ffffff";
+            }
+    
+            if (ultimoDestino) {
+                ultimoDestino.style.color = "#ffffff";
+            }
+    
+            if (footer) {
+                footer.style.backgroundColor = "#f8f8f8";
+                footer.style.color = "#000000";
+            }
         }
     }
+    
+    
 });
 
 const i18n_es = {

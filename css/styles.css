@@ -257,7 +257,7 @@ botones button:hover {
 }
 
 .modal-content {
-  background-color: #1f1f2f;
+  background-color: #ffffff;
   margin: 10% auto;
   padding: 20px;
   width: 80%;
@@ -436,7 +436,6 @@ input:checked + .slider:before {
 }
 
 .btn-container {
-  background-color: #6200ea;
   color: white;
   border: none;
   padding: 10px;
@@ -447,19 +446,4 @@ input:checked + .slider:before {
 .switch {
   display: flex;
   align-items: center;
-}
-#progress-container {
-  width: 100%;
-  background-color: #ccc;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  height: 20px;
-  overflow: hidden;
-}
-
-#progress-bar {
-  width: 0%;
-  height: 100%;
-  background-color: #4a4aff;
-  transition: width 0.3s ease;
 }
