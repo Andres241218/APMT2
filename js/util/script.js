@@ -65,15 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         case 'nieve':
           window.location.href = 'checknieve.html';
           break;
-        case 'beach':
-          window.location.href = 'checkplaya.html';
-          break;
-          case 'mountain':
-            window.location.href = 'checkmontana.html';
-            break;
-          case 'snow':
-            window.location.href = 'checknieve.html';
-            break;
         default:
           window.location.href = 'checklist.html';
       }
@@ -82,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Al cargar la página, si hay datos guardados, se actualizan los elementos
   const storedDestino = localStorage.getItem('ultimoDestino');
   const storedTipo = localStorage.getItem('tipoDestino');
   if (storedDestino) {

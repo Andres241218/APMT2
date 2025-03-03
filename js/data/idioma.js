@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const languageToggle = document.getElementById('language-toggle');
-  let currentLanguage = 'es';
+  let currentLanguage = localStorage.getItem('currentLanguage') || 'es';
 
   const translations = {
     es: {
       headerTitle: "Bienvenido de Nuevo ",
-      destinoH2: "Último destino",
+      destinoH2: "Tu último destino",
       ultimoDestino: "Playa",
       proximaInspeccion: "¿Cuál es tu próxima aventura?",
       btnAgregaDestino: "Agrega un destino",
@@ -43,26 +43,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLanguage() {
     const t = translations[currentLanguage];
-    
-    // Obtener el nombre del usuario desde localStorage
+    localStorage.setItem('currentLanguage', currentLanguage);
+
+    // Actualizar header title (incluye nombre de usuario si está guardado)
     const userData = JSON.parse(localStorage.getItem('userData')) || {};
     const nombreUsuario = userData.nombre || "Usuario";
-
-    // Actualizar el título del encabezado con el nombre del usuario
     const headerTitle = document.getElementById('header-title');
     if (headerTitle) headerTitle.textContent = t.headerTitle + nombreUsuario;
 
+    // Actualizar destino-h2: si hay stored tipo, traducirlo; si no, usar el valor por defecto
     const destinoH2 = document.getElementById('destino-h2');
+    const storedTipo = localStorage.getItem('tipoDestino');
     if (destinoH2) {
-      const storedTipo = localStorage.getItem('tipoDestino');
-      if (!storedTipo) {
+      if (storedTipo) {
+        const lower = storedTipo.toLowerCase();
+        if (lower === 'montaña' || lower === 'mountain') {
+          destinoH2.textContent = t.destinoMontana;
+        } else if (lower === 'playa' || lower === 'beach') {
+          destinoH2.textContent = t.destinoPlaya;
+        } else if (lower === 'nieve' || lower === 'snow') {
+          destinoH2.textContent = t.destinoNieve;
+        } else {
+          destinoH2.textContent = storedTipo;
+        }
+      } else {
         destinoH2.textContent = t.destinoH2;
       }
     }
 
+    // Actualizar último destino: si hay stored, separar la parte del país y combinarla con la traducción del tipo
     const ultimoDestinoEl = document.getElementById('ultimo-destino');
-    if (ultimoDestinoEl && !localStorage.getItem('ultimoDestino')) {
-      ultimoDestinoEl.textContent = t.ultimoDestino;
+    const storedDestino = localStorage.getItem('ultimoDestino');
+    if (ultimoDestinoEl) {
+      if (storedDestino && storedTipo) {
+        const parts = storedDestino.split(':');
+        const countryPart = parts.length > 1 ? parts[1].trim() : "";
+        let translatedTipo;
+        const lower = storedTipo.toLowerCase();
+        if (lower === 'montaña' || lower === 'mountain') {
+          translatedTipo = t.destinoMontana;
+        } else if (lower === 'playa' || lower === 'beach') {
+          translatedTipo = t.destinoPlaya;
+        } else if (lower === 'nieve' || lower === 'snow') {
+          translatedTipo = t.destinoNieve;
+        } else {
+          translatedTipo = storedTipo;
+        }
+        const newDestino = countryPart ? `${translatedTipo}: ${countryPart}` : translatedTipo;
+        ultimoDestinoEl.textContent = newDestino;
+        localStorage.setItem('ultimoDestino', newDestino);
+      } else {
+        ultimoDestinoEl.textContent = t.ultimoDestino;
+      }
     }
 
     const proximaInspeccionH2 = document.getElementById('proxima-inspeccion-h2');
@@ -104,15 +136,19 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks[1].textContent = t.footerAjustes;
       navLinks[2].textContent = t.footerPerfil;
     }
+
+    if (languageToggle) {
+      languageToggle.textContent = currentLanguage === 'es' ? 'ENGLISH' : 'ESPAÑOL';
+    }
   }
 
   if (languageToggle) {
     languageToggle.addEventListener('click', () => {
       currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
       updateLanguage();
-      languageToggle.textContent = currentLanguage === 'es' ? 'ENGLISH' : 'ESPAÑOL';
       document.documentElement.lang = currentLanguage;
     });
   }
+
   updateLanguage();
 });
