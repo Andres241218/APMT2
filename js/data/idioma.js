@@ -45,40 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const t = translations[currentLanguage];
     localStorage.setItem('currentLanguage', currentLanguage);
 
-    // Actualizar header title (incluye nombre de usuario si está guardado)
+    // Actualizar header title (agregando el nombre del usuario si está guardado)
     const userData = JSON.parse(localStorage.getItem('userData')) || {};
     const nombreUsuario = userData.nombre || "Usuario";
     const headerTitle = document.getElementById('header-title');
     if (headerTitle) headerTitle.textContent = t.headerTitle + nombreUsuario;
 
-    // Actualizar destino-h2: si hay stored tipo, traducirlo; si no, usar el valor por defecto
+    // Actualizar destino-h2:
     const destinoH2 = document.getElementById('destino-h2');
-    const storedTipo = localStorage.getItem('tipoDestino');
+    const storedTipo = localStorage.getItem('tipoDestino'); // Se espera "Montaña", "Playa" o "Nieve"
     if (destinoH2) {
-      if (storedTipo) {
-        const lower = storedTipo.toLowerCase();
-        if (lower === 'montaña' || lower === 'mountain') {
-          destinoH2.textContent = t.destinoMontana;
-        } else if (lower === 'playa' || lower === 'beach') {
-          destinoH2.textContent = t.destinoPlaya;
-        } else if (lower === 'nieve' || lower === 'snow') {
-          destinoH2.textContent = t.destinoNieve;
-        } else {
-          destinoH2.textContent = storedTipo;
-        }
-      } else {
-        destinoH2.textContent = t.destinoH2;
-      }
+      destinoH2.textContent = storedTipo 
+        ? (storedTipo.toLowerCase() === 'montaña' || storedTipo.toLowerCase() === 'mountain'
+            ? t.destinoMontana
+            : storedTipo.toLowerCase() === 'playa' || storedTipo.toLowerCase() === 'beach'
+              ? t.destinoPlaya
+              : storedTipo.toLowerCase() === 'nieve' || storedTipo.toLowerCase() === 'snow'
+                ? t.destinoNieve
+                : storedTipo)
+        : t.destinoH2;
     }
 
-    // Actualizar último destino: si hay stored, separar la parte del país y combinarla con la traducción del tipo
+    // Actualizar último destino:
     const ultimoDestinoEl = document.getElementById('ultimo-destino');
-    const storedDestino = localStorage.getItem('ultimoDestino');
+    const storedDestino = localStorage.getItem('ultimoDestino'); // Se espera "Tipo: País"
     if (ultimoDestinoEl) {
       if (storedDestino && storedTipo) {
+        // Se separa el tipo y el país usando ":" como separador
         const parts = storedDestino.split(':');
         const countryPart = parts.length > 1 ? parts[1].trim() : "";
-        let translatedTipo;
+        let translatedTipo = storedTipo;
         const lower = storedTipo.toLowerCase();
         if (lower === 'montaña' || lower === 'mountain') {
           translatedTipo = t.destinoMontana;
@@ -86,8 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
           translatedTipo = t.destinoPlaya;
         } else if (lower === 'nieve' || lower === 'snow') {
           translatedTipo = t.destinoNieve;
-        } else {
-          translatedTipo = storedTipo;
         }
         const newDestino = countryPart ? `${translatedTipo}: ${countryPart}` : translatedTipo;
         ultimoDestinoEl.textContent = newDestino;
