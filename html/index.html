@@ -9,8 +9,7 @@
   <body>
     <header class="header">
       <div class="header-content">
-        <h1 id="header-title">Bienvenido de Nuevo Andres!</h1>
-        <button id="language-toggle">EN</button>
+        <h1 id="header-title" data-i18n="header-title">Bienvenido de Nuevo Andres!</h1>
       </div>
     </header>
 
@@ -19,28 +18,28 @@
       <section class="destino-actual">
         <div class="destino-fondo" id="destino-fondo" style="background-image: url('../img/playa.jpg');">
           <div class="destino-texto">
-            <h2 id="destino-h2">Tu último destino</h2>
-            <p id="ultimo-destino">Playa</p>
+            <h2 id="destino-h2" data-i18n="destino-h2">Tu último destino</h2>
+            <p id="ultimo-destino" data-i18n="ultimo-destino">Playa</p>
           </div>
         </div>
       </section>
 
       <!-- Próxima inspección -->
       <section class="proxima-inspeccion">
-        <h2 id="proxima-inspeccion-h2">¿Cual sera tu proxima aventura?</h2>
+        <h2 id="proxima-inspeccion-h2" data-i18n="proxima-inspeccion-h2">¿Cual sera tu proxima aventura?</h2>
       </section>
       
       <!-- Posibles destinos -->
       <section class="posibles-destinos">
-        <h2 id="posibles-destinos-h2">Posibles destinos</h2>
+        <h2 id="posibles-destinos-h2" data-i18n="posibles-destinos-h2">Posibles destinos</h2>
         <div class="destino-item" style="background-image: url('../img/montana.jpg');">
-          <div class="destino-tipo">Montaña</div>
+          <div class="destino-tipo" data-i18n="destino-montana">Montaña</div>
         </div>
         <div class="destino-item" style="background-image: url('../img/playa.jpg');">
-          <div class="destino-tipo">Playa</div>
+          <div class="destino-tipo" data-i18n="destino-playa">Playa</div>
         </div>
         <div class="destino-item" style="background-image: url('../img/nieve.jpg');">
-          <div class="destino-tipo">Nieve</div>
+          <div class="destino-tipo" data-i18n="destino-nieve">Nieve</div>
         </div>
       </section>
     </main>
@@ -50,15 +49,15 @@
       <nav class="nav-bar">
         <a href="index.html">
           <img src="../img/casa.png" alt="Inicio">
-          <span>Inicio</span>
+          <span data-i18n="inicio">Inicio</span>
         </a>
         <a href="ajustes.html">
           <img src="../img/ajustes.png" alt="Ajustes">
-          <span>Ajustes</span>
+          <span data-i18n="ajustes">Ajustes</span>
         </a>
         <a href="usuario.html">
           <img src="../img/perfil.png" alt="Mi Perfil">
-          <span>Mi Perfil</span>
+          <span data-i18n="mi-perfil">Mi Perfil</span>
         </a>
       </nav>
     </footer>
@@ -67,19 +66,21 @@
     <div id="modal-form" class="modal">
       <div class="modal-content">
         <span id="close-modal" class="close">&times;</span>
-        <h2 id="modal-title">¿Qué país quiere visitar?</h2>
+        <h2 id="modal-title" data-i18n="modal-title">¿Qué país quiere visitar?</h2>
         <form id="country-form">
-          <label for="country-select" id="label-country">Seleccione un país:</label>
+          <label for="country-select" id="label-country" data-i18n="label-country">Seleccione un país:</label>
           <select id="country-select">
             <option value="">--Seleccione--</option>
             <!-- Se llenará dinámicamente con JS -->
           </select>
-          <button type="submit" id="btn-enviar">Enviar</button>
+          <button type="submit" id="btn-enviar" data-i18n="btn-enviar">Enviar</button>
         </form>
       </div>
     </div>
 
     <script src="../js/util/script.js"></script>
     <script src="../js/data/idioma.js"></script>
+    <script src="../js/util/configuraciones.js"></script>
+    
   </body>
 </html>
