@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     languageToggle.addEventListener('click', () => {
       currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
       updateLanguage();
-      languageToggle.textContent = currentLanguage === 'es' ? 'EN' : 'ES';
+      languageToggle.textContent = currentLanguage === 'es' ? 'ENGLISH' : 'ESPAÑOL';
       document.documentElement.lang = currentLanguage;
     });
   }
