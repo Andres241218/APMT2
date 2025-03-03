@@ -65,6 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         case 'nieve':
           window.location.href = 'checknieve.html';
           break;
+        case 'beach':
+          window.location.href = 'checkplaya.html';
+          break;
+          case 'mountain':
+            window.location.href = 'checkmontana.html';
+            break;
+          case 'snow':
+            window.location.href = 'checknieve.html';
+            break;
         default:
           window.location.href = 'checklist.html';
       }
