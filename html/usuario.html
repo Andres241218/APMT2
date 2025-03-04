@@ -22,16 +22,16 @@
     <footer class="footer">
       <nav class="nav-bar">
         <a href="index.html">
-          <img src="../img/casa.png" alt="Inicio" />
-          <span data-i18n="inicio">Inicio</span>
+          <img src="../img/casa.png" alt="Inicio">
+          <span>Inicio</span>
         </a>
         <a href="ajustes.html">
-          <img src="../img/ajustes.png" alt="Ajustes" />
-          <span data-i18n="ajustes">Ajustes</span>
+          <img src="../img/ajustes.png" alt="Ajustes">
+          <span>Ajustes</span>
         </a>
-        <a href="usuario.html" class="active">
-          <img src="../img/perfil.png" alt="Mi Perfil" />
-          <span data-i18n="mi-perfil">Mi Perfil</span>
+        <a href="usuario.html">
+          <img src="../img/perfil.png" alt="Mi Perfil">
+          <span>Mi Perfil</span>
         </a>
       </nav>
     </footer>
@@ -42,8 +42,8 @@
 
         if (!userData) {
           userData = {
-            nombre: 'Nombre por defecto',
-            apellido: 'Apellido por defecto',
+            nombre: 'Nombre: por defecto',
+            apellido: 'Apellido: por defecto',
             sexo: 'No especificado',
             viajeroFrecuente: 'No'
           };
@@ -58,5 +58,7 @@
         `;
       });
     </script>
+       <script src="../js/data/idioma.js"></script>
+       <script src="../js/util/configuraciones.js"></script>
   </body>
 </html>
