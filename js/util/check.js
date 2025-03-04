@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Asegurar que todos los elementos h2 en el DOM tengan color negro
+  const headings = document.querySelectorAll('h2');
+  headings.forEach(heading => {
+    heading.style.color = 'black';
+  });
+
   // Manejo del modal de finalización
   const finishBtn = document.getElementById('finish-btn');
   const finishModal = document.getElementById('finish-modal');
