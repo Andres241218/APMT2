@@ -20,8 +20,9 @@
     align-items: center;
     height: 100vh; /* Altura completa de la ventana */
   }
-/* Encabezado */
-.header {
+  
+  /* Encabezado */
+  .header {
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
@@ -43,4 +44,64 @@
     display: inline-block;
     text-align: left;
     margin-bottom: 20px; /* Espacio para el footer */
+  }
+  
+  /* Título principal */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Lista de datos */
+  #user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-data-item {
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para los títulos en negrita */
+  #user-data li strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el footer */
+  .footer {
+    width: 100%;
+    background: #0f0f1f;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .nav-bar a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .nav-bar a.active {
+    font-weight: bold;
+  }
+  
+  .nav-bar img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 5px;
   }
