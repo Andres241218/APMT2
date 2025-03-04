@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.lang = idioma;
 
         if (idiomaBtn) {
-            idiomaBtn.textContent = idioma === "es" ? "ENGLISH" : "ESPAÑOL;
+            idiomaBtn.textContent = idioma === "es" ? "ENGLISH" : "ESPAÑOL";
         }
 
         document.querySelectorAll("[data-i18n]").forEach(function (element) {

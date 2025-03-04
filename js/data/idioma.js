@@ -45,27 +45,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const t = translations[currentLanguage];
     localStorage.setItem('currentLanguage', currentLanguage);
 
-    // Header Title
+    // Actualizar header title (incluye nombre de usuario si está guardado)
     const userData = JSON.parse(localStorage.getItem('userData')) || {};
     const nombreUsuario = userData.nombre || "Usuario";
     const headerTitle = document.getElementById('header-title');
-    if (headerTitle) headerTitle.textContent = t.headerTitle + nombreUsuario;
-
-    // Destino H2
-    const destinoH2 = document.getElementById('destino-h2');
-    if (destinoH2) destinoH2.textContent = t.destinoH2;
-
-    // Último Destino
-    const ultimoDestinoEl = document.getElementById('ultimo-destino');
-    if (ultimoDestinoEl) {
-      const storedTipo = localStorage.getItem('tipoDestino') || "";
-      const translatedTipo = storedTipo.toLowerCase() === "montaña" ? t.destinoMontana :
-                             storedTipo.toLowerCase() === "playa" ? t.destinoPlaya :
-                             storedTipo.toLowerCase() === "nieve" ? t.destinoNieve : storedTipo;
-      ultimoDestinoEl.textContent = translatedTipo || t.ultimoDestino;
+    if (headerTitle) {
+      headerTitle.textContent = t.headerTitle + nombreUsuario;
     }
 
-    // Otros elementos
+    // Actualizar destino-h2 usando stored 'tipoDestino' o el valor por defecto
+    const destinoH2 = document.getElementById('destino-h2');
+    const storedTipo = localStorage.getItem('tipoDestino');
+    if (destinoH2) {
+      if (storedTipo) {
+        const lower = storedTipo.toLowerCase();
+        if (lower === 'montaña' || lower === 'mountain') {
+          destinoH2.textContent = t.destinoMontana;
+        } else if (lower === 'playa' || lower === 'beach') {
+          destinoH2.textContent = t.destinoPlaya;
+        } else if (lower === 'nieve' || lower === 'snow') {
+          destinoH2.textContent = t.destinoNieve;
+        } else {
+          destinoH2.textContent = storedTipo;
+        }
+      } else {
+        destinoH2.textContent = t.destinoH2;
+      }
+    }
+
+    // Actualizar último destino: si hay stored, separar la parte del país y combinarla con la traducción del tipo
+    const ultimoDestinoEl = document.getElementById('ultimo-destino');
+    const storedDestino = localStorage.getItem('ultimoDestino'); // Formato: "Tipo: País"
+    if (ultimoDestinoEl) {
+      if (storedDestino && storedTipo) {
+        const parts = storedDestino.split(':');
+        const countryPart = parts.length > 1 ? parts[1].trim() : "";
+        let translatedTipo;
+        const lower = storedTipo.toLowerCase();
+        if (lower === 'montaña' || lower === 'mountain') {
+          translatedTipo = t.destinoMontana;
+        } else if (lower === 'playa' || lower === 'beach') {
+          translatedTipo = t.destinoPlaya;
+        } else if (lower === 'nieve' || lower === 'snow') {
+          translatedTipo = t.destinoNieve;
+        } else {
+          translatedTipo = storedTipo;
+        }
+        const newDestino = countryPart ? `${translatedTipo}: ${countryPart}` : translatedTipo;
+        ultimoDestinoEl.textContent = newDestino;
+        localStorage.setItem('ultimoDestino', newDestino);
+      } else {
+        ultimoDestinoEl.textContent = t.ultimoDestino;
+      }
+    }
+
+    // Actualizar otros elementos usando un mapeo
     const translationsMap = {
       'proxima-inspeccion-h2': t.proximaInspeccion,
       'btn-agrega-destino': t.btnAgregaDestino,
@@ -81,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (element) element.textContent = translationsMap[id];
     });
 
-    // Footer Navigation
+    // Actualizar los textos de los elementos de la navegación inferior
     const navLinks = document.querySelectorAll('.nav-bar a span');
     if (navLinks.length >= 3) {
       navLinks[0].textContent = t.footerInicio;
@@ -89,7 +123,26 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks[2].textContent = t.footerPerfil;
     }
 
-    // Language Toggle Button
+    // Actualizar los textos de los elementos con data-i18n (por ejemplo, en posibles destinos)
+    const destinoTipos = document.querySelectorAll('.destino-tipo');
+    destinoTipos.forEach(tipo => {
+      const key = tipo.getAttribute('data-i18n');
+      if (key && t[key]) {
+        tipo.textContent = t[key];
+      } else {
+        // Fallback por si no existe data-i18n
+        const text = tipo.textContent.trim().toLowerCase();
+        if (text === 'montaña' || text === 'mountain') {
+          tipo.textContent = t.destinoMontana;
+        } else if (text === 'playa' || text === 'beach') {
+          tipo.textContent = t.destinoPlaya;
+        } else if (text === 'nieve' || text === 'snow') {
+          tipo.textContent = t.destinoNieve;
+        }
+      }
+    });
+
+    // Actualizar el botón de idioma
     if (languageToggle) {
       languageToggle.textContent = currentLanguage === 'es' ? 'ENGLISH' : 'ESPAÑOL';
     }

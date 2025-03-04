@@ -1,87 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página de Bienvenida</title>
-    <!-- Ajustar ruta al archivo CSS -->
-    <link rel="stylesheet" href="../css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando</title>
+    <link rel="stylesheet" href="../css/load.css">
   </head>
   <body>
-    <header class="header">
-      <div class="header-content">
-        <h1 id="header-title">
-          ¡Bienvenido <span id="nombre"></span>!
-        </h1>
-      </div>
-    </header>
-
-    <main class="main-content">
-      <!-- Sección "Tu último destino" -->
-      <section class="destino-actual">
-        <div class="destino-fondo" id="destino-fondo" style="background-image: url('../img/playa.jpg');">
-          <div class="destino-texto">
-            <h2 id="destino-h2">Tu último destino</h2>
-            <p id="ultimo-destino">Playa</p>
-          </div>
-        </div> 
-      </section>
-
-      <!-- Próxima inspección -->
-      <section class="proxima-inspeccion">
-        <h2 id="proxima-inspeccion-h2" data-i18n="proxima-inspeccion-h2">¿Cuál será tu próxima aventura?</h2>
-      </section>
-      
-      <!-- Posibles destinos -->
-      <section class="posibles-destinos">
-        <h2 id="posibles-destinos-h2" data-i18n="posibles-destinos-h2">Posibles destinos</h2>
-        <div class="destino-item" style="background-image: url('../img/montana.jpg');">
-          <div class="destino-tipo" data-i18n="destino-montana">Montaña</div>
-        </div>
-        <div class="destino-item" style="background-image: url('../img/playa.jpg');">
-          <div class="destino-tipo" data-i18n="destino-playa">Playa</div>
-        </div>
-        <div class="destino-item" style="background-image: url('../img/nieve.jpg');">
-          <div class="destino-tipo" data-i18n="destino-nieve">Nieve</div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Barra de navegación inferior -->
-    <footer class="footer">
-      <nav class="nav-bar">
-        <a href="index.html">
-          <img src="../img/casa.png" alt="Inicio">
-          <span>Inicio</span>
-        </a>
-        <a href="ajustes.html">
-          <img src="../img/ajustes.png" alt="Ajustes">
-          <span>Ajustes</span>
-        </a>
-        <a href="usuario.html">
-          <img src="../img/perfil.png" alt="Mi Perfil">
-          <span>Mi Perfil</span>
-        </a>
-      </nav>
-    </footer>
-    <!-- Modal Lightbox para el formulario -->
-    <div id="modal-form" class="modal">
-      <div class="modal-content">
-        <span id="close-modal" class="close">&times;</span>
-        <h2 id="modal-title" data-i18n="modal-title">¿Qué país quiere visitar?</h2>
-        <form id="country-form">
-          <label for="country-select" id="label-country" data-i18n="label-country">Seleccione un país:</label>
-          <select id="country-select">
-            <option value="">--Seleccione--</option>
-            <!-- Se llenará dinámicamente con JS -->
-          </select>
-          <button type="submit" id="btn-enviar" data-i18n="btn-enviar">Enviar</button>
-        </form>
-      </div>
+    <div class="center">
+      <img src="../img/logo.png" alt="Logo" class="blink">
     </div>
-    <script src="../js/util/mostrarNombre.js"></script>
-    <script src="../js/util/script.js"></script>
-    <script src="../js/data/idioma.js"></script>
-    <script src="../js/util/configuraciones.js"></script>
   </body>
+  <script src="../js/data/configuraciones.js"></script>
 </html>

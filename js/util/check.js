@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (confirmFinish) {
     confirmFinish.addEventListener('click', () => {
-      window.location.href = 'index.html';
+      window.location.href = 'main.html';
     });
   }
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.getElementById('progress-bar');
 
   function updateProgress() {
-    const total = checkboxes.length;
+    const total = checkboxes.length; 
     let checked = 0;
     checkboxes.forEach(checkbox => {
       if (checkbox.checked) {

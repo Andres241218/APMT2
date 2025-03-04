@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.setItem('userData', JSON.stringify(userData));
 
-    window.location.href = 'index.html';
+    window.location.href = 'main.html';
   });
 
   // Modal de Términos y Condiciones
