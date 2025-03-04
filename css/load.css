@@ -10,3 +10,25 @@ body, html {
 .center {
   text-align: center;
 }
+
+.fade-in-out {
+  animation: fadeIn 2s ease-in, fadeOut 2s 2s ease-out;
+}
+
+.blink {
+  animation: blink 4s steps(1000, start) infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
