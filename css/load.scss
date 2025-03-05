@@ -20,25 +20,15 @@ body, html {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/*# sourceMappingURL=load.css.map */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
