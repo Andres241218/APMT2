@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cargando</title>
+    <!-- Ajuste de ruta del CSS -->
+    <link rel="stylesheet" href="src/styles/load.css" />
+  </head>
+  <body>
+    <div class="center">
+      <img src="src/assets/img/logo.png" alt="Logo" class="blink" />
+    </div>
+  </body>
+  <script type="module">
+    // Redirección a la página de crear cuenta después de 2 segundos
+    setTimeout(() => {
+      window.location.href = "crearCuenta.html";
+    }, 2000);
+  </script>
+</html>

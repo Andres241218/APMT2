@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklist Playa</title>
+    <!-- Ajuste de la ruta del CSS -->
+    <link rel="stylesheet" href="src/styles/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Checklist para tu viaje a la playa</h1>
+    </header>
+    <main class="main-content">
+      <div class="checklist-container">
+        <p id="mensaje">Recuerda llenar toda la lista para que estés preparado para tu viaje</p>
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+        <ul class="checklist">
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Protector solar
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Gafas de sol
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Sombrero o gorra
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Toalla
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Ropa de baño
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Ropa ligera y cómoda
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Chanclas o sandalias
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Agua
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Snacks ligeros
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Nevera portátil
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-container" style="text-align: center; margin-top: 20px;">
+        <button id="finish-btn">Completo</button>
+      </div>
+    </main>
+    <!-- Barra de navegación inferior -->
+    <footer class="footer">
+      <nav class="nav-bar">
+        <!-- Ajuste de las rutas de navegación -->
+        <a href="main.html">
+          <img src="src/assets/img/casa.png" alt="Inicio" />
+          <span>Inicio</span>
+        </a>
+        <a href="ajustes.html" class="active">
+          <img src="src/assets/img/ajustes.png" alt="Ajustes" />
+          <span>Ajustes</span>
+        </a>
+        <a href="usuario.html">
+          <img src="src/assets/img/perfil.png" alt="Mi Perfil" />
+          <span>Mi Perfil</span>
+        </a>
+      </nav>
+    </footer>
+
+
+    <div id="finish-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-finish-modal" class="close">&times;</span>
+        <h2>Tienes todo para tu viaje</h2>
+        <button id="confirm-finish">Aceptar</button>
+      </div>
+    </div>
+    <!-- Ajuste de la ruta del script -->
+    <script type="module" src="src/js/util/check.js"></script>
+  </body>
+</html>
